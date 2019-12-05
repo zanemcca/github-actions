@@ -8599,7 +8599,7 @@ function run() {
             }
             // write the service account key to a temporary file
             const tmpKeyFilePath = yield new Promise((resolve, reject) => {
-                tmp.file((err, path, fd, cleanupCallback) => {
+                tmp.file({ postfix: '.json' }, (err, path, fd, cleanupCallback) => {
                     if (err) {
                         reject(err);
                     }

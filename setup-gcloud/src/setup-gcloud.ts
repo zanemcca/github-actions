@@ -50,7 +50,7 @@ async function run() {
 
     // write the service account key to a temporary file
     const tmpKeyFilePath = await new Promise<string>((resolve, reject) => {
-      tmp.file((err, path, fd, cleanupCallback) => {
+      tmp.file({ postfix: '.json' }, (err, path, fd, cleanupCallback) => {
         if (err) {
           reject(err);
         }
